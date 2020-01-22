@@ -7,7 +7,7 @@
 	<br />
 	<form method="POST">
 		Description: 
-		<input type="text" name="desciption"> <input type="submit">
+		<input type="text" name="description"> <input type="submit">
 	</form>
 </body>
 </html>

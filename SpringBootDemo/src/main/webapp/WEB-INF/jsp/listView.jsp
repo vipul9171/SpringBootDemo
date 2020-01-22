@@ -29,7 +29,7 @@
 
 	</table>
 	<h1>
-		<a href="/add-todo">Click Here</a> to add todo
+		<a href="/show-todo">Click Here</a> to add todo
 	</h1>
 
 </body>

@@ -28,16 +28,16 @@ public class ListTodosController {
 		return "listView";
 	}
 
-	@RequestMapping(value = "/show-todo", method = RequestMethod.GET)
+	@RequestMapping(value = "/add-todo", method = RequestMethod.GET)
 	public String showTodo(ModelMap map) {
 		return "addTodo";
 	}
 
 	@RequestMapping(value = "/add-todo", method = RequestMethod.POST)
 	public String addTodoList(@RequestParam String description, ModelMap map) {
-		System.out.println("this is here");
+
 		todoService.addToDos(103, (String) map.getAttribute("username"), description, new Date(), false);
-		return "login";
+		return "redirect:/list";
 
 	}
 

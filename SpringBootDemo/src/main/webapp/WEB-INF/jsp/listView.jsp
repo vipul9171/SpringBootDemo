@@ -6,10 +6,12 @@
 <head>
 <title>Welcome ${username}</title>
 </head>
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+		rel="stylesheet">
 <body>
-
-	<h1>${username}YourTodo'sarehere:</h1>
-	<table>
+	<div class="container">
+	${username}YourTodo'sarehere:
+	<table class="table">
 		<thead>
 			<tr>
 				<td>User</td>
@@ -29,8 +31,11 @@
 
 	</table>
 	<h1>
-		<a href="/add-todo">Click Here</a> to add todo
+		<a class="button"  href="/add-todo">Click Here</a> to add todo
 	</h1>
+	<script src="webjars/bootstrap/1.9.1/jquery.min.js"></script>
+	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</div>
 
 </body>
 </html>

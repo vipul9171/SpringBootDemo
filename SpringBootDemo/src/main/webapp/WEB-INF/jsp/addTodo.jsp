@@ -13,7 +13,7 @@
 		<form:form method="POST" modelAttribute="todoModel">
 			<fieldset class="form-group">
 				<form:label path="desc">Description: </form:label>
-				 <input path="desc" type="text" class="form control" required="required">
+				 <form:input path="desc" type="text" class="form-control" required="required"></form:input>
 				</fieldset>
 				<button type="submit" class="btn btn-sucess">add</button>
 		</form:form>

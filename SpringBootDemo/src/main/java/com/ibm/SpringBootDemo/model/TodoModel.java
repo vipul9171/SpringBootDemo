@@ -3,6 +3,12 @@ package com.ibm.SpringBootDemo.model;
 import java.util.Date;
 
 public class TodoModel {
+	
+	public TodoModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private int id;
 	private String user;
 	private String desc;

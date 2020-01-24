@@ -2,6 +2,7 @@ package com.ibm.SpringBootDemo.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class TodDoService {
 	private static int todoCount = 3;
 	static {
 		todoModel.add(new TodoModel(101, "vipul", "learn Spring", new Date(), false));
-		todoModel.add(new TodoModel(102, "vipul", "learn hibernat", new Date(), false));
+		todoModel.add(new TodoModel(102, "vipul", "learn hibernate", new Date(), false));
 		todoModel.add(new TodoModel(103, "vipul", "learn Spring boot", new Date(), false));
 
 	}
@@ -31,9 +32,21 @@ public class TodDoService {
 
 		return filtered;
 	}
-	public void addToDos(int id, String user, String desc, Date targetDate, boolean isDone)
-	{
+
+	public void addToDos(String user, String desc, Date targetDate, boolean isDone) {
 		todoModel.add(new TodoModel(++todoCount, user, desc, targetDate, isDone));
+	}
+
+	public void deleteToDos(int id) {
+		Iterator<TodoModel> iterator = todoModel.iterator();
+		while (iterator.hasNext()) {
+			TodoModel model = iterator.next();
+			if (model.getId() == id) {
+				iterator.remove();
+
+			}
+
+		}
 	}
 
 }

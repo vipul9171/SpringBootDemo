@@ -1,6 +1,6 @@
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
 <html>
@@ -12,7 +12,7 @@
 
 <body>
 	<div class="container">
-		${username}YourTodo'sarehere:
+		<h2>${username} Your Todo list is here:</h2>
 		<table class="table">
 			<thead>
 				<tr>
@@ -27,7 +27,9 @@
 					<tr>
 						<td>${todo.user}</td>
 						<td>${todo.desc}</td>
-						<td>${todo.targetDate}</td>
+						<td><fmt:formatDate value="${todo.targetDate}" pattern="dd/MM/yyyy"/></td>
+						<td><a type="button" class="btn btn-success"
+							href="/update-todo?id=${todo.id}">update</a></td>
 						<td><a type="button" class="btn btn-warning"
 							href="/delete-todo?id=${todo.id}">Delete</a></td>
 					</tr>

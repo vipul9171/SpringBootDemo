@@ -14,9 +14,9 @@ public class TodDoService {
 	private static List<TodoModel> todoModel = new ArrayList<TodoModel>();
 	private static int todoCount = 3;
 	static {
-		todoModel.add(new TodoModel(101, "vipul", "learn Spring", new Date(), false));
-		todoModel.add(new TodoModel(102, "vipul", "learn hibernate", new Date(), false));
-		todoModel.add(new TodoModel(103, "vipul", "learn Spring boot", new Date(), false));
+		todoModel.add(new TodoModel(1, "vipul", "learn Spring", new Date(), false));
+		todoModel.add(new TodoModel(2, "vipul", "learn hibernate", new Date(), false));
+		todoModel.add(new TodoModel(3, "vipul", "learn Spring boot", new Date(), false));
 
 	}
 
@@ -29,7 +29,6 @@ public class TodDoService {
 			}
 
 		}
-
 		return filtered;
 	}
 
@@ -47,6 +46,23 @@ public class TodDoService {
 			}
 
 		}
+	}
+
+	public TodoModel reteriveTodoById(int id) {
+
+		for (TodoModel loginModel : todoModel) {
+			if (loginModel.getId() == id) {
+				return loginModel;
+
+			}
+
+		}
+		return null;
+	}
+
+	public void updateTodo(TodoModel todo) {
+		todoModel.remove(todo);
+		todoModel.add(todo);
 	}
 
 }

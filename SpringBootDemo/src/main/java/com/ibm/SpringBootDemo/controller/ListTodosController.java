@@ -36,15 +36,19 @@ public class ListTodosController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String reterieveToDoList(ModelMap map) {
 
-		map.put("list", todoService.reteriveTodos((String) map.getAttribute("username")));
-		map.put("username", (String) map.getAttribute("username"));
+		System.out.println("List " + todoService.reteriveTodos(getLoggedInUser(map)));
+		map.put("list", todoService.reteriveTodos(getLoggedInUser(map)));
+		/* map.put("username", (String) map.getAttribute("username")); */
 		return "listView";
+	}
+
+	private String getLoggedInUser(ModelMap map) {
+		return (String) map.getAttribute("username");
 	}
 
 	@RequestMapping(value = "/add-todo", method = RequestMethod.GET)
 	public String showTodo(ModelMap model) {
-		model.addAttribute("todoModel",
-				new TodoModel(0, (String) model.getAttribute("username"), "", new Date(), false));
+		model.addAttribute("todoModel", new TodoModel(0, getLoggedInUser(model), "", new Date(), false));
 
 		return "addTodo";
 	}
@@ -56,8 +60,7 @@ public class ListTodosController {
 			return "addTodo";
 
 		}
-		todoService.addToDos((String) map.getAttribute("username"), todoModel.getDesc(), todoModel.getTargetDate(),
-				false);
+		todoService.addToDos(getLoggedInUser(map), todoModel.getDesc(), todoModel.getTargetDate(), false);
 		return "redirect:/list";
 
 	}
@@ -84,7 +87,7 @@ public class ListTodosController {
 			return "addTodo";
 
 		}
-		todoModel.setUser((String) map.getAttribute("username"));
+		todoModel.setUser(getLoggedInUser(map));
 
 		todoService.updateTodo(todoModel);
 		return "redirect:/list";

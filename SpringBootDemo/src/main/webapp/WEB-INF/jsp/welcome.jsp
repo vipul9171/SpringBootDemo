@@ -1,13 +1,9 @@
-<html>
-<head>
-<title>login</title>
-</head>
-<body>
-	<h1>
-		Congratulation!!!${username} <a href="/list">Click Here</a> To
-		retrieve the list
-	</h1>
+<%@ include file="common/header.jspf"%>
+<%@ include file="common/navigation.jspf"%>
 
-</body>
+<h1>
+	Congratulation!!! ${username} <a href="/list">Click Here</a> To retrieve
+	the list
+</h1>
 
-</html>
+<%@ include file="common/footer.jspf"%>

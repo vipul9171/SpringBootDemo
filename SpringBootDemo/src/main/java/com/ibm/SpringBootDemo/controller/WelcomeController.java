@@ -1,6 +1,8 @@
 package com.ibm.SpringBootDemo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,14 +13,25 @@ import com.ibm.SpringBootDemo.service.LoginService;
 
 @Controller
 @SessionAttributes("username")
-public class LoginController {
+public class WelcomeController {
 	@Autowired
 	LoginService loginService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String loginPage(ModelMap map) {
-		map.put("username", "vipul");
+	public String showWelcomePage(ModelMap map) {
+		map.put("username", getLoggedInUser());
 		return "welcome";
+	}
+
+	
+
+	private String getLoggedInUser() {
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (principal instanceof UserDetails) {
+			return ((UserDetails) principal).getUsername();
+
+		}
+		return principal.toString();
 	}
 
 	/*

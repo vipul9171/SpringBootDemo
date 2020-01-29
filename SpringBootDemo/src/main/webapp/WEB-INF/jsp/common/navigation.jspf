@@ -7,5 +7,9 @@
 			<li class="active"><a href="/">Home</a></li>
 			<li class="active"><a href="/list">Todos</a></li>
 		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="active"><a href="/logout">logout</a></li>
+
+		</ul>
 	</div>
 </nav>

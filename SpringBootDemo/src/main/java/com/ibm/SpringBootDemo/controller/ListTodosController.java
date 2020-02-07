@@ -62,6 +62,7 @@ public class ListTodosController {
 		}
 		todoService.addToDos(getLoggedInUser(map), todoModel.getDesc(), todoModel.getTargetDate(), false);
 		return "redirect:/list";
+		
 
 	}
 

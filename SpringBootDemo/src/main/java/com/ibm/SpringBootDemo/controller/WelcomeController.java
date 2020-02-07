@@ -34,15 +34,6 @@ public class WelcomeController {
 		return principal.toString();
 	}
 
-	/*
-	 * @RequestMapping(value = "/login", method = RequestMethod.POST) public String
-	 * loginPage(@RequestParam String username, @RequestParam String password,
-	 * ModelMap map) { if (!loginService.isValid(username, password)) {
-	 * map.put("errorMessage", "Invalide Credentials"); return "login"; }
-	 * 
-	 * map.put("username", username); return "welcome";
-	 * 
-	 * }
-	 */
+	
 
 }
